@@ -1,0 +1,2346 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frames by Vlad | Професионална фотография</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #e74c3c;
+      --accent: #3498db;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+      --text: #34495e;
+      --gray: #95a5a6;
+      --transition: all 0.3s ease;
+      --shadow: 0 5px 15px rgba(0,0,0,0.1);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo i {
+      margin-right: 10px;
+      color: var(--secondary);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-item {
+      margin-left: 30px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--secondary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--secondary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .language-switcher {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+      position: relative;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+
+    .lang-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .lang-btn i {
+      margin-right: 5px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* Mobile Language Switcher */
+    .mobile-language-switcher {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .mobile-lang-btn {
+      background: none;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .mobile-lang-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .mobile-lang-btn i {
+      margin-right: 5px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/photo1.jpg') center/cover no-repeat;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .hero .subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+      color: var(--light);
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      margin: 5px 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background-color: var(--secondary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #c0392b;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+      background-color: white;
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* Sections */
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .section-title p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+    }
+
+    .about-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Services Section */
+    .services {
+      background-color: var(--light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    .service-card p {
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
+
+    /* Portfolio Section */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      height: 300px;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(44, 62, 80, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: var(--transition);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-overlay h3 {
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-overlay p {
+      color: var(--light);
+    }
+
+    /* Like Button for Portfolio */
+    .like-btn {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .like-btn:hover {
+      background: white;
+      transform: scale(1.1);
+    }
+
+    .like-btn i {
+      color: #e74c3c;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .like-btn.liked i {
+      color: #e74c3c;
+    }
+
+    .like-count {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      z-index: 10;
+    }
+
+    /* Top Photos Carousel */
+    .top-photos {
+      background-color: var(--light);
+      padding: 80px 0;
+    }
+
+    .carousel {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background: white;
+    }
+
+    .carousel-btn.prev {
+      left: 20px;
+    }
+
+    .carousel-btn.next {
+      right: 20px;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ddd;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .carousel-dot.active {
+      background: var(--secondary);
+    }
+
+    /* Reviews Section */
+    .reviews {
+      background-color: var(--light);
+    }
+
+    .reviews-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+      transition: var(--transition);
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .reviewer-info h4 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .review-date {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .stars {
+      color: #f1c40f;
+      font-size: 1.2rem;
+    }
+
+    .review-text {
+      margin-bottom: 15px;
+    }
+
+    .more-reviews {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .hidden-reviews {
+      display: none;
+    }
+
+    .hidden-reviews.show {
+      display: block;
+    }
+
+    /* Add Review Form */
+    .add-review {
+      background: white;
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      margin-top: 50px;
+    }
+
+    .add-review h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--primary);
+    }
+
+    .star-rating {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-direction: row-reverse;
+    }
+
+    .star-rating input {
+      display: none;
+    }
+
+    .star-rating label {
+      font-size: 2rem;
+      color: #ddd;
+      cursor: pointer;
+      transition: var(--transition);
+      margin: 0 5px;
+    }
+
+    .star-rating input:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: #f1c40f;
+    }
+
+    /* Blog Section */
+    .blog {
+      background-color: white;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .blog-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .blog-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .blog-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .blog-card:hover .blog-image img {
+      transform: scale(1.1);
+    }
+
+    .blog-content {
+      padding: 25px;
+    }
+
+    .blog-date {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .blog-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    .blog-card p {
+      margin-bottom: 20px;
+    }
+
+    .blog-actions {
+      text-align: center;
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: white;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-right: 15px;
+      margin-top: 5px;
+    }
+
+    .contact-details h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: var(--primary);
+    }
+
+    .contact-form {
+      background: var(--light);
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: var(--radius);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 80vh;
+      display: block;
+      border-radius: var(--radius);
+    }
+
+    .lightbox-caption {
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .lightbox-nav:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .lightbox-prev {
+      left: 20px;
+    }
+
+    .lightbox-next {
+      right: 20px;
+    }
+
+    /* Social Share Buttons */
+    .social-share {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .social-share-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-share-btn.facebook {
+      background: #3b5998;
+    }
+
+    .social-share-btn.instagram {
+      background: #e1306c;
+    }
+
+    .social-share-btn.pinterest {
+      background: #bd081c;
+    }
+
+    .social-share-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background-color: var(--secondary);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--light);
+      font-size: 0.9rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--secondary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      text-decoration: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: #c0392b;
+      transform: translateY(-5px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .about-content,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-image {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 50px;
+        transition: var(--transition);
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .nav-item {
+        margin: 15px 0;
+      }
+
+      .language-switcher {
+        display: none;
+      }
+
+      .mobile-language-switcher {
+        display: block;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.2rem;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .carousel-slide img {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .btn {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+      }
+      
+      .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .stars {
+        margin-top: 10px;
+      }
+
+      .carousel-slide img {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container header-container">
+      <a href="#" class="logo">
+        <i class="fas fa-camera"></i>
+        <span data-translate="site-title">Frames by Vlad</span>
+      </a>
+      
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#home" class="nav-link" data-translate="nav-home">Начало</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link" data-translate="nav-about">За мен</a></li>
+        <li class="nav-item"><a href="#services" class="nav-link" data-translate="nav-services">Услуги</a></li>
+        <li class="nav-item"><a href="#portfolio" class="nav-link" data-translate="nav-portfolio">Портфолио</a></li>
+        <li class="nav-item"><a href="#top-photos" class="nav-link" data-translate="nav-top-photos">Топ снимки</a></li>
+        <li class="nav-item"><a href="#reviews" class="nav-link" data-translate="nav-reviews">Отзиви</a></li>
+        <li class="nav-item"><a href="#blog" class="nav-link" data-translate="nav-blog">Блог</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link" data-translate="nav-contact">Контакти</a></li>
+        <li class="nav-item language-switcher">
+          <button class="lang-btn">
+            <i class="fas fa-globe"></i>
+            <span data-translate="lang-btn">EN</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <h1 data-translate="hero-title">Frames by Vlad</h1>
+      <p class="subtitle" data-translate="hero-subtitle">Улавяне на моменти, създаване на спомени</p>
+      <div class="hero-buttons">
+        <a href="#portfolio" class="btn btn-primary" data-translate="hero-btn-portfolio">Виж портфолио</a>
+        <a href="#contact" class="btn btn-secondary" data-translate="hero-btn-contact">Свържи се с мен</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-translate="about-title">За мен</h2>
+        <p data-translate="about-subtitle">Запознайте се с фотографа зад обектива</p>
+      </div>
+      
+      <div class="about-content">
+        <div class="about-text">
+          <p data-translate="about-text-1">Историите са навсякъде около нас – в усмивките, в погледите, в малките жестове. Аз ги превръщам в кадри и видеа, които ще запазите за цял живот.</p>
+          <p data-translate="about-text-2">Заснемам сватби, кръщенета, юбилеи, рождени дни, както и музикални клипове, корпоративни събития, тиймбилдинги и концерти. Ако мечтаете за портрети – на открито или в студио – ще направя всичко, за да се чувствате спокойни и уверени пред камерата.</p>
+          <p data-translate="about-text-3">Предлагам и дрон фотография за онези кадри, които карат зрителя да ахне. А видеата, които създавам, разказват истории – от първия кадър до последния монтаж.</p>
+          <p data-translate="about-text-4">Работя в цяла България – София, Плевен, Велико Търново, Русе, Пловдив, Варна, Бургас, Стара Загора и още много други места. Където и да е вашият специален ден, ще бъда там, за да го запазя по най-красивия начин.</p>
+        </div>
+        <div class="about-image">
+          <img src="images/photo2.jpg" alt="Vlad - фотограф">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section services">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-translate="services-title">Услуги</h2>
+        <p data-translate="services-subtitle">Какво мога да предложа за вашия специален момент</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-user"></i>
+          </div>
+          <h3 data-translate="service-1-title">Портретна фотография</h3>
+          <p data-translate="service-1-desc">Естествени и емоционални портрети сред красиви пейзажи и градски локации или професионални студийни фотосесии с контролирано осветление.</p>
+          <a href="portraits.html" class="btn btn-outline" data-translate="view-portfolio-btn">Виж портфолио</a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-ring"></i>
+          </div>
+          <h3 data-translate="service-2-title">Сватбена фотография</h3>
+          <p data-translate="service-2-desc">Заснемане на специални събития като сватби, рождени дни, тиймбилдинги и концерти, за да запазите спомените за цял живот.</p>
+          <a href="weddings.html" class="btn btn-outline" data-translate="view-portfolio-btn">Виж портфолио</a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-drone"></i>
+          </div>
+          <h3 data-translate="service-3-title">Дрон фотография</h3>
+          <p data-translate="service-3-desc">Въздушни снимки с уникална перспектива, които добавят драма и различно измерение към вашите спомени.</p>
+          <a href="drone.html" class="btn btn-outline" data-translate="view-portfolio-btn">Виж портфолио</a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-video"></i>
+          </div>
+          <h3 data-translate="service-4-title">Видеопродукция</h3>
+          <p data-translate="service-4-desc">Създаване на динамични и въздействащи видеа, които разказват вашата история от първия до последния кадър.</p>
+          <a href="video.html" class="btn btn-outline" data-translate="view-portfolio-btn">Виж портфолио</a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-mountain"></i>
+          </div>
+          <h3 data-translate="service-5-title">Природна фотография</h3>
+          <p data-translate="service-5-desc">Запечатване на красотата на природата в нейните различни форми и проявления.</p>
+          <a href="nature.html" class="btn btn-outline" data-translate="view-portfolio-btn">Виж портфолио</a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-film"></i>
+          </div>
+          <h3 data-translate="service-6-title">Зад кадър</h3>
+          <p data-translate="service-6-desc">Документиране на истинските моменти зад камерата, които често са най-искрени и запомнящи се.</p>
+          <a href="behind-scenes.html" class="btn btn-outline" data-translate="view-portfolio-btn">Виж портфолио</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-translate="portfolio-title">Портфолио</h2>
+        <p data-translate="portfolio-subtitle">Моите най-добри работи</p>
+      </div>
+      
+      <div class="portfolio-grid" id="portfolio-grid">
+        <!-- Portfolio items will be dynamically sorted by likes -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Photos Carousel -->
+  <section id="top-photos" class="section top-photos">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-translate="top-photos-title">Топ снимки</h2>
+        <p data-translate="top-photos-subtitle">Най-харесваните снимки от клиентите ми</p>
+      </div>
+      
+      <div class="carousel">
+        <div class="carousel-track" id="carousel-track">
+          <!-- Carousel slides will be dynamically added -->
+        </div>
+        <button class="carousel-btn prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="carousel-dots" id="carousel-dots">
+        <!-- Carousel dots will be dynamically added -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="section reviews">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-translate="reviews-title">Отзиви на клиенти</h2>
+        <p data-translate="reviews-subtitle">Какво казват хората за работата ми</p>
+      </div>
+      
+      <div class="reviews-container">
+        <!-- Featured Reviews (always visible) -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <h4>Мария Иванова</h4>
+              <div class="review-date" data-translate="review-1-date">15 март 2023</div>
+            </div>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="review-text">
+            <p data-translate="review-1-text">Владислав направи невероятни снимки на нашата сватба! Улови всички важни моменти с толкова много усет и креативност. Препоръчвам го с две ръце!</p>
+          </div>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <h4>Георги Петров</h4>
+              <div class="review-date" data-translate="review-2-date">2 април 2023</div>
+            </div>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="review-text">
+            <p data-translate="review-2-text">Портретната фотосесия с Владислав беше уникално преживяване. Умее да създаде комфортна атмосфера и да улови най-доброто от всеки човек. Резултатите бяха изумителни!</p>
+          </div>
+        </div>
+        
+        <!-- Hidden Reviews (shown when "Show More" is clicked) -->
+        <div class="hidden-reviews" id="hidden-reviews">
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <h4>Елена Димитрова</h4>
+                <div class="review-date" data-translate="review-3-date">10 май 2023</div>
+              </div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <div class="review-text">
+              <p data-translate="review-3-text">Направихме корпоративна снимка с екипа и Владислав успя да улови духа на нашата компания перфектно. Професионалист в областта си!</p>
+            </div>
+          </div>
+          
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <h4>Александър Стоянов</h4>
+                <div class="review-date" data-translate="review-4-date">22 юни 2023</div>
+              </div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <div class="review-text">
+              <p data-translate="review-4-text">Дрон снимките, които Владислав направи за нашата сватба, бяха абсолютен хит. Даваха перспектива, която не сме виждали досега. Благодарим!</p>
+            </div>
+          </div>
+          
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <h4>Диана Василева</h4>
+                <div class="review-date" data-translate="review-5-date">5 юли 2023</div>
+              </div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <div class="review-text">
+              <p data-translate="review-5-text">Владислав засне видеоклип за нашата музикална група и резултатът надмина очакванията ни. Професионален подход, креативни идеи и качествена работа!</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="more-reviews">
+          <button id="show-more-reviews" class="btn btn-outline" data-translate="show-more-reviews">Покажи още отзиви</button>
+          <button id="show-less-reviews" class="btn btn-outline" style="display: none;" data-translate="show-less-reviews">Покажи по-малко</button>
+        </div>
+        
+        <!-- Add Review Form -->
+        <div class="add-review">
+          <h3 data-translate="add-review-title">Добавете вашия отзив</h3>
+          <form id="review-form">
+            <div class="form-group">
+              <input type="text" id="reviewer-name" class="form-control" placeholder="Вашето име" data-translate="review-form-name" required>
+            </div>
+            
+            <div class="form-group">
+              <div class="star-rating">
+                <input type="radio" id="star5" name="rating" value="5">
+                <label for="star5" title="5 звезди">★</label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4" title="4 звезди">★</label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3" title="3 звезди">★</label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2" title="2 звезди">★</label>
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1" title="1 звезда">★</label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <textarea id="review-comment" class="form-control" rows="4" placeholder="Вашият коментар" data-translate="review-form-comment" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;" data-translate="review-form-submit">Изпрати отзив</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="section blog">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-translate="blog-title">Блог</h2>
+        <p data-translate="blog-subtitle">Споделям съвети, истории и вдъхновение от света на фотографията</p>
+      </div>
+      
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-image">
+            <img src="images/blog1.jpg" alt="Съвети за сватбена фотография">
+          </div>
+          <div class="blog-content">
+            <span class="blog-date" data-translate="blog-1-date">15 май 2023</span>
+            <h3 data-translate="blog-1-title">10 съвета за перфектната сватбена фотография</h3>
+            <p data-translate="blog-1-desc">Научете как да се подготвите за вашия специален ден и да получите снимки, които ще обичате завинаги.</p>
+            <a href="blog-post1.html" class="btn btn-outline" data-translate="read-more-btn">Прочети повече</a>
+          </div>
+        </div>
+        
+        <div class="blog-card">
+          <div class="blog-image">
+            <img src="images/blog2.jpg" alt="Дрон фотография">
+          </div>
+          <div class="blog-content">
+            <span class="blog-date" data-translate="blog-2-date">2 април 2023</span>
+            <h3 data-translate="blog-2-title">Предимствата на дрон фотографията</h3>
+            <p data-translate="blog-2-desc">Открийте как въздушните снимки могат да добавят уникална перспектива към вашите спомени.</p>
+            <a href="blog-post2.html" class="btn btn-outline" data-translate="read-more-btn">Прочети повече</a>
+          </div>
+        </div>
+        
+        <div class="blog-card">
+          <div class="blog-image">
+            <img src="images/blog3.jpg" alt="Студийна фотосесия">
+          </div>
+          <div class="blog-content">
+            <span class="blog-date" data-translate="blog-3-date">18 март 2023</span>
+            <h3 data-translate="blog-3-title">Как да се подготвите за студийна фотосесия</h3>
+            <p data-translate="blog-3-desc">Полезни съвети как да се чувствате уверени и естествени пред камерата по време на студийна снимка.</p>
+            <a href="blog-post3.html" class="btn btn-outline" data-translate="read-more-btn">Прочети повече</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="blog-actions">
+        <a href="blog.html" class="btn btn-outline" data-translate="view-more-blog">Виж още</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-translate="contact-title">Свържете се с мен</h2>
+        <p data-translate="contact-subtitle">Готов съм да сътрудничам по вашия следващ проект</p>
+      </div>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h3 data-translate="contact-location-title">Локация</h3>
+              <p data-translate="contact-location-text">Работя в цяла България</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-details">
+              <h3 data-translate="contact-phone-title">Телефон</h3>
+              <p>+359 88 123 4567</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h3 data-translate="contact-email-title">Имейл</h3>
+              <p>vlad@framesbyvlad.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-details">
+              <h3 data-translate="contact-hours-title">Работно време</h3>
+              <p data-translate="contact-hours-text">Понеделник - Неделя: 9:00 - 20:00</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form action="https://formsubmit.co/your-email@example.com" method="POST">
+            <div class="form-group">
+              <input type="text" name="name" class="form-control" placeholder="Вашето име" data-translate="contact-form-name" required>
+            </div>
+            
+            <div class="form-group">
+              <input type="email" name="email" class="form-control" placeholder="Вашият имейл" data-translate="contact-form-email" required>
+            </div>
+            
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Тема" data-translate="contact-form-subject" required>
+            </div>
+            
+            <div class="form-group">
+              <textarea name="message" class="form-control" placeholder="Вашето съобщение" data-translate="contact-form-message" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;" data-translate="contact-form-submit">Изпрати съобщение</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3 data-translate="footer-about-title">Frames by Vlad</h3>
+          <p data-translate="footer-about-text">Професионална фотография и видеопродукция, която превръща моменти в вечни спомени.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3 data-translate="footer-links-title">Бързи връзки</h3>
+          <ul class="footer-links">
+            <li><a href="#home" data-translate="nav-home">Начало</a></li>
+            <li><a href="#about" data-translate="nav-about">За мен</a></li>
+            <li><a href="#services" data-translate="nav-services">Услуги</a></li>
+            <li><a href="#portfolio" data-translate="nav-portfolio">Портфолио</a></li>
+            <li><a href="#top-photos" data-translate="nav-top-photos">Топ снимки</a></li>
+            <li><a href="#reviews" data-translate="nav-reviews">Отзиви</a></li>
+            <li><a href="#blog" data-translate="nav-blog">Блог</a></li>
+            <li><a href="#contact" data-translate="nav-contact">Контакти</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 data-translate="footer-services-title">Услуги</h3>
+          <ul class="footer-links">
+            <li><a href="portraits.html" data-translate="service-1-title">Портретна фотография</a></li>
+            <li><a href="weddings.html" data-translate="service-2-title">Сватбена фотография</a></li>
+            <li><a href="drone.html" data-translate="service-3-title">Дрон фотография</a></li>
+            <li><a href="video.html" data-translate="service-4-title">Видеопродукция</a></li>
+            <li><a href="nature.html" data-translate="service-5-title">Природна фотография</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 data-translate="footer-contact-title">Контакти</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-phone"></i> +359 88 123 4567</li>
+            <li><i class="fas fa-envelope"></i> vlad@framesbyvlad.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> <span data-translate="contact-location-text">Работя в цяла България</span></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Frames by Vlad | Photography Portfolio. <span data-translate="footer-rights">Всички права запазени.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">
+      <i class="fas fa-times"></i>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-caption">
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-desc"></p>
+        <div class="social-share">
+          <a href="#" class="social-share-btn facebook" id="share-facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-share-btn instagram" id="share-instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="social-share-btn pinterest" id="share-pinterest">
+            <i class="fab fa-pinterest-p"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script>
+    // Current language
+    let currentLang = 'bg';
+
+    // Translation data
+    const translations = {
+      'bg': {
+        // Navigation
+        'site-title': 'Frames by Vlad',
+        'nav-home': 'Начало',
+        'nav-about': 'За мен',
+        'nav-services': 'Услуги',
+        'nav-portfolio': 'Портфолио',
+        'nav-top-photos': 'Топ снимки',
+        'nav-reviews': 'Отзиви',
+        'nav-blog': 'Блог',
+        'nav-contact': 'Контакти',
+        'lang-btn': 'EN',
+        
+        // Hero section
+        'hero-title': 'Frames by Vlad',
+        'hero-subtitle': 'Улавяне на моменти, създаване на спомени',
+        'hero-btn-portfolio': 'Виж портфолио',
+        'hero-btn-contact': 'Свържи се с мен',
+        
+        // About section
+        'about-title': 'За мен',
+        'about-subtitle': 'Запознайте се с фотографа зад обектива',
+        'about-text-1': 'Историите са навсякъде около нас – в усмивките, в погледите, в малките жестове. Аз ги превръщам в кадри и видеа, които ще запазите за цял живот.',
+        'about-text-2': 'Заснемам сватби, кръщенета, юбилеи, рождени дни, както и музикални клипове, корпоративни събития, тиймбилдинги и концерти. Ако мечтаете за портрети – на открито или в студио – ще направя всичко, за да се чувствате спокойни и уверени пред камерата.',
+        'about-text-3': 'Предлагам и дрон фотография за онези кадри, които карат зрителя да ахне. А видеата, които създавам, разказват истории – от първия кадър до последния монтаж.',
+        'about-text-4': 'Работя в цяла България – София, Плевен, Велико Търново, Русе, Пловдив, Варна, Бургас, Стара Загора и още много други места. Където и да е вашият специален ден, ще бъда там, за да го запазя по най-красивия начин.',
+        
+        // Services section
+        'services-title': 'Услуги',
+        'services-subtitle': 'Какво мога да предложа за вашия специален момент',
+        'service-1-title': 'Портретна фотография',
+        'service-1-desc': 'Естествени и емоционални портрети сред красиви пейзажи и градски локации или професионални студийни фотосесии с контролирано осветление.',
+        'service-2-title': 'Сватбена фотография',
+        'service-2-desc': 'Заснемане на специални събития като сватби, рождени дни, тиймбилдинги и концерти, за да запазите спомените за цял живот.',
+        'service-3-title': 'Дрон фотография',
+        'service-3-desc': 'Въздушни снимки с уникална перспектива, които добавят драма и различно измерение към вашите спомени.',
+        'service-4-title': 'Видеопродукция',
+        'service-4-desc': 'Създаване на динамични и въздействащи видеа, които разказват вашата история от първия до последния кадър.',
+        'service-5-title': 'Природна фотография',
+        'service-5-desc': 'Запечатване на красотата на природата в нейните различни форми и проявления.',
+        'service-6-title': 'Зад кадър',
+        'service-6-desc': 'Документиране на истинските моменти зад камерата, които често са най-искрени и запомнящи се.',
+        'view-portfolio-btn': 'Виж портфолио',
+        
+        // Portfolio section
+        'portfolio-title': 'Портфолио',
+        'portfolio-subtitle': 'Моите най-добри работи',
+        
+        // Top Photos section
+        'top-photos-title': 'Топ снимки',
+        'top-photos-subtitle': 'Най-харесваните снимки от клиентите ми',
+        
+        // Reviews section
+        'reviews-title': 'Отзиви на клиенти',
+        'reviews-subtitle': 'Какво казват хората за работата ми',
+        'review-1-date': '15 март 2023',
+        'review-1-text': 'Владислав направи невероятни снимки на нашата сватба! Улови всички важни моменти с толкова много усет и креативност. Препоръчвам го с две ръце!',
+        'review-2-date': '2 април 2023',
+        'review-2-text': 'Портретната фотосесия с Владислав беше уникално преживяване. Умее да създаде комфортна атмосфера и да улови най-доброто от всеки човек. Резултатите бяха изумителни!',
+        'review-3-date': '10 май 2023',
+        'review-3-text': 'Направихме корпоративна снимка с екипа и Владислав успя да улови духа на нашата компания перфектно. Професионалист в областта си!',
+        'review-4-date': '22 юни 2023',
+        'review-4-text': 'Дрон снимките, които Владислав направи за нашата сватба, бяха абсолютен хит. Даваха перспектива, която не сме виждали досега. Благодарим!',
+        'review-5-date': '5 юли 2023',
+        'review-5-text': 'Владислав засне видеоклип за нашата музикална група и резултатът надмина очакванията ни. Професионален подход, креативни идеи и качествена работа!',
+        'show-more-reviews': 'Покажи още отзиви',
+        'show-less-reviews': 'Покажи по-малко',
+        'add-review-title': 'Добавете вашия отзив',
+        'review-form-name': 'Вашето име',
+        'review-form-comment': 'Вашият коментар',
+        'review-form-submit': 'Изпрати отзив',
+        
+        // Blog section
+        'blog-title': 'Блог',
+        'blog-subtitle': 'Споделям съвети, истории и вдъхновение от света на фотографията',
+        'blog-1-date': '15 май 2023',
+        'blog-1-title': '10 съвета за перфектната сватбена фотография',
+        'blog-1-desc': 'Научете как да се подготвите за вашия специален ден и да получите снимки, които ще обичате завинаги.',
+        'blog-2-date': '2 април 2023',
+        'blog-2-title': 'Предимствата на дрон фотографията',
+        'blog-2-desc': 'Открийте как въздушните снимки могат да добавят уникална перспектива към вашите спомени.',
+        'blog-3-date': '18 март 2023',
+        'blog-3-title': 'Как да се подготвите за студийна фотосесия',
+        'blog-3-desc': 'Полезни съвети как да се чувствате уверени и естествени пред камерата по време на студийна снимка.',
+        'read-more-btn': 'Прочети повече',
+        'view-more-blog': 'Виж още',
+        
+        // Contact section
+        'contact-title': 'Свържете се с мен',
+        'contact-subtitle': 'Готов съм да сътрудничам по вашия следващ проект',
+        'contact-location-title': 'Локация',
+        'contact-location-text': 'Работя в цяла България',
+        'contact-phone-title': 'Телефон',
+        'contact-email-title': 'Имейл',
+        'contact-hours-title': 'Работно време',
+        'contact-hours-text': 'Понеделник - Неделя: 9:00 - 20:00',
+        'contact-form-name': 'Вашето име',
+        'contact-form-email': 'Вашият имейл',
+        'contact-form-subject': 'Тема',
+        'contact-form-message': 'Вашето съобщение',
+        'contact-form-submit': 'Изпрати съобщение',
+        
+        // Footer
+        'footer-about-title': 'Frames by Vlad',
+        'footer-about-text': 'Професионална фотография и видеопродукция, която превръща моменти в вечни спомени.',
+        'footer-links-title': 'Бързи връзки',
+        'footer-services-title': 'Услуги',
+        'footer-contact-title': 'Контакти',
+        'footer-rights': 'Всички права запазени.'
+      },
+      'en': {
+        // Navigation
+        'site-title': 'Frames by Vlad',
+        'nav-home': 'Home',
+        'nav-about': 'About',
+        'nav-services': 'Services',
+        'nav-portfolio': 'Portfolio',
+        'nav-top-photos': 'Top Photos',
+        'nav-reviews': 'Reviews',
+        'nav-blog': 'Blog',
+        'nav-contact': 'Contact',
+        'lang-btn': 'BG',
+        
+        // Hero section
+        'hero-title': 'Frames by Vlad',
+        'hero-subtitle': 'Capturing moments, creating memories',
+        'hero-btn-portfolio': 'View Portfolio',
+        'hero-btn-contact': 'Contact Me',
+        
+        // About section
+        'about-title': 'About Me',
+        'about-subtitle': 'Meet the photographer behind the lens',
+        'about-text-1': 'Stories are all around us - in smiles, in glances, in small gestures. I turn them into photos and videos that you will keep for a lifetime.',
+        'about-text-2': 'I shoot weddings, baptisms, anniversaries, birthdays, as well as music videos, corporate events, team building and concerts. If you dream of portraits - outdoors or in the studio - I will do everything to make you feel calm and confident in front of the camera.',
+        'about-text-3': 'I also offer drone photography for those shots that make the viewer gasp. And the videos I create tell stories - from the first shot to the last edit.',
+        'about-text-4': 'I work throughout Bulgaria - Sofia, Pleven, Veliko Tarnovo, Ruse, Plovdiv, Varna, Burgas, Stara Zagora and many other places. Wherever your special day is, I will be there to preserve it in the most beautiful way.',
+        
+        // Services section
+        'services-title': 'Services',
+        'services-subtitle': 'What I can offer for your special moment',
+        'service-1-title': 'Portrait Photography',
+        'service-1-desc': 'Natural and emotional portraits in beautiful landscapes and urban locations or professional studio photo sessions with controlled lighting.',
+        'service-2-title': 'Wedding Photography',
+        'service-2-desc': 'Shooting special events such as weddings, birthdays, team building and concerts to preserve your memories for a lifetime.',
+        'service-3-title': 'Drone Photography',
+        'service-3-desc': 'Aerial shots with a unique perspective that add drama and a different dimension to your memories.',
+        'service-4-title': 'Video Production',
+        'service-4-desc': 'Creating dynamic and impactful videos that tell your story from the first to the last frame.',
+        'service-5-title': 'Nature Photography',
+        'service-5-desc': 'Capturing the beauty of nature in its various forms and manifestations.',
+        'service-6-title': 'Behind the Scenes',
+        'service-6-desc': 'Documenting the real moments behind the camera, which are often the most sincere and memorable.',
+        'view-portfolio-btn': 'View Portfolio',
+        
+        // Portfolio section
+        'portfolio-title': 'Portfolio',
+        'portfolio-subtitle': 'My best works',
+        
+        // Top Photos section
+        'top-photos-title': 'Top Photos',
+        'top-photos-subtitle': 'Most liked photos by my clients',
+        
+        // Reviews section
+        'reviews-title': 'Client Reviews',
+        'reviews-subtitle': 'What people say about my work',
+        'review-1-date': 'March 15, 2023',
+        'review-1-text': 'Vladislav took incredible photos of our wedding! He captured all the important moments with so much sense and creativity. I highly recommend him!',
+        'review-2-date': 'April 2, 2023',
+        'review-2-text': 'The portrait photo session with Vladislav was a unique experience. He knows how to create a comfortable atmosphere and capture the best of every person. The results were amazing!',
+        'review-3-date': 'May 10, 2023',
+        'review-3-text': 'We had a corporate photo shoot with the team and Vladislav managed to perfectly capture the spirit of our company. A true professional in his field!',
+        'review-4-date': 'June 22, 2023',
+        'review-4-text': 'The drone shots that Vladislav took for our wedding were an absolute hit. They provided a perspective we had never seen before. Thank you!',
+        'review-5-date': 'July 5, 2023',
+        'review-5-text': 'Vladislav shot a video clip for our music band and the result exceeded our expectations. Professional approach, creative ideas and quality work!',
+        'show-more-reviews': 'Show More Reviews',
+        'show-less-reviews': 'Show Less',
+        'add-review-title': 'Add Your Review',
+        'review-form-name': 'Your Name',
+        'review-form-comment': 'Your Comment',
+        'review-form-submit': 'Submit Review',
+        
+        // Blog section
+        'blog-title': 'Blog',
+        'blog-subtitle': 'Sharing tips, stories and inspiration from the world of photography',
+        'blog-1-date': 'May 15, 2023',
+        'blog-1-title': '10 Tips for Perfect Wedding Photography',
+        'blog-1-desc': 'Learn how to prepare for your special day and get photos you will love forever.',
+        'blog-2-date': 'April 2, 2023',
+        'blog-2-title': 'The Advantages of Drone Photography',
+        'blog-2-desc': 'Discover how aerial shots can add a unique perspective to your memories.',
+        'blog-3-date': 'March 18, 2023',
+        'blog-3-title': 'How to Prepare for a Studio Photo Session',
+        'blog-3-desc': 'Useful tips on how to feel confident and natural in front of the camera during a studio shoot.',
+        'read-more-btn': 'Read More',
+        'view-more-blog': 'View More',
+        
+        // Contact section
+        'contact-title': 'Contact Me',
+        'contact-subtitle': 'I am ready to collaborate on your next project',
+        'contact-location-title': 'Location',
+        'contact-location-text': 'I work throughout Bulgaria',
+        'contact-phone-title': 'Phone',
+        'contact-email-title': 'Email',
+        'contact-hours-title': 'Working Hours',
+        'contact-hours-text': 'Monday - Sunday: 9:00 AM - 8:00 PM',
+        'contact-form-name': 'Your Name',
+        'contact-form-email': 'Your Email',
+        'contact-form-subject': 'Subject',
+        'contact-form-message': 'Your Message',
+        'contact-form-submit': 'Send Message',
+        
+        // Footer
+        'footer-about-title': 'Frames by Vlad',
+        'footer-about-text': 'Professional photography and video production that turns moments into eternal memories.',
+        'footer-links-title': 'Quick Links',
+        'footer-services-title': 'Services',
+        'footer-contact-title': 'Contact',
+        'footer-rights': 'All rights reserved.'
+      }
+    };
+
+    // Portfolio data
+    const portfolioItems = [
+      {
+        id: 1,
+        image: 'images/photo1.jpg',
+        title: 'Сватбена церемония',
+        description: 'Емоционални моменти от специален ден',
+        likes: 0
+      },
+      {
+        id: 2,
+        image: 'images/photo2.jpg',
+        title: 'Портрет на открито',
+        description: 'Естествени позы в природна среда',
+        likes: 0
+      },
+      {
+        id: 3,
+        image: 'images/photo3.jpg',
+        title: 'Дрон снимка',
+        description: 'Уникална перспектива от височина',
+        likes: 0
+      },
+      {
+        id: 4,
+        image: 'images/photo4.jpg',
+        title: 'Студийна фотосесия',
+        description: 'Професионални портрети с контролирано осветление',
+        likes: 0
+      },
+      {
+        id: 5,
+        image: 'images/photo5.jpg',
+        title: 'Събитие',
+        description: 'Корпоративно събитие и тиймбилдинг',
+        likes: 0
+      },
+      {
+        id: 6,
+        image: 'images/photo6.jpg',
+        title: 'Природна фотография',
+        description: 'Запечатване на красотата на природата',
+        likes: 0
+      }
+    ];
+
+    // Function to change language
+    function setLanguage(lang) {
+      currentLang = lang;
+      
+      // Update all elements with data-translate attribute
+      document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang][key]) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.placeholder = translations[lang][key];
+          } else {
+            element.textContent = translations[lang][key];
+          }
+        }
+      });
+      
+      // Update language button text
+      document.querySelector('.lang-btn span').textContent = translations[lang]['lang-btn'];
+      document.querySelector('.mobile-lang-btn span').textContent = translations[lang]['lang-btn'];
+      
+      // Store language preference
+      localStorage.setItem('preferred-language', lang);
+    }
+
+    // Initialize portfolio with likes from localStorage
+    function initializePortfolio() {
+      const savedLikes = localStorage.getItem('portfolioLikes');
+      if (savedLikes) {
+        const likesData = JSON.parse(savedLikes);
+        portfolioItems.forEach(item => {
+          if (likesData[item.id]) {
+            item.likes = likesData[item.id];
+          }
+        });
+      }
+      
+      // Sort portfolio items by likes (descending)
+      portfolioItems.sort((a, b) => b.likes - a.likes);
+      
+      // Render portfolio items
+      const portfolioGrid = document.getElementById('portfolio-grid');
+      portfolioGrid.innerHTML = '';
+      
+      portfolioItems.forEach(item => {
+        const portfolioItem = document.createElement('div');
+        portfolioItem.className = 'portfolio-item';
+        portfolioItem.innerHTML = `
+          <img src="${item.image}" alt="${item.title}">
+          <div class="portfolio-overlay">
+            <h3 data-translate="portfolio-${item.id}-title">${item.title}</h3>
+            <p data-translate="portfolio-${item.id}-desc">${item.description}</p>
+          </div>
+          <button class="like-btn" data-id="${item.id}">
+            <i class="far fa-heart"></i>
+          </button>
+          <div class="like-count">${item.likes}</div>
+        `;
+        portfolioGrid.appendChild(portfolioItem);
+        
+        // Add click event for lightbox
+        portfolioItem.addEventListener('click', (e) => {
+          if (!e.target.classList.contains('like-btn')) {
+            openLightbox(item);
+          }
+        });
+        
+        // Add like functionality
+        const likeBtn = portfolioItem.querySelector('.like-btn');
+        likeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleLike(item.id);
+        });
+        
+        // Update like button appearance based on current state
+        if (isLiked(item.id)) {
+          likeBtn.classList.add('liked');
+          likeBtn.innerHTML = '<i class="fas fa-heart"></i>';
+        }
+      });
+    }
+
+    // Check if item is liked
+    function isLiked(id) {
+      const likedItems = JSON.parse(localStorage.getItem('likedItems') || '{}');
+      return likedItems[id] || false;
+    }
+
+    // Toggle like for portfolio item
+    function toggleLike(id) {
+      const likedItems = JSON.parse(localStorage.getItem('likedItems') || '{}');
+      const portfolioItem = portfolioItems.find(item => item.id === id);
+      
+      if (likedItems[id]) {
+        // Unlike
+        likedItems[id] = false;
+        portfolioItem.likes--;
+      } else {
+        // Like
+        likedItems[id] = true;
+        portfolioItem.likes++;
+      }
+      
+      // Save to localStorage
+      localStorage.setItem('likedItems', JSON.stringify(likedItems));
+      
+      // Update likes count in localStorage
+      const likesData = {};
+      portfolioItems.forEach(item => {
+        likesData[item.id] = item.likes;
+      });
+      localStorage.setItem('portfolioLikes', JSON.stringify(likesData));
+      
+      // Reinitialize portfolio to update UI
+      initializePortfolio();
+      initializeCarousel();
+    }
+
+    // Initialize carousel with top photos
+    function initializeCarousel() {
+      // Get top 3 photos by likes
+      const topPhotos = [...portfolioItems]
+        .sort((a, b) => b.likes - a.likes)
+        .slice(0, 3);
+      
+      const carouselTrack = document.getElementById('carousel-track');
+      const carouselDots = document.getElementById('carousel-dots');
+      
+      carouselTrack.innerHTML = '';
+      carouselDots.innerHTML = '';
+      
+      topPhotos.forEach((photo, index) => {
+        // Create slide
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+        slide.innerHTML = `
+          <img src="${photo.image}" alt="${photo.title}">
+          <div class="carousel-caption">
+            <h3>${photo.title}</h3>
+            <p>${photo.description}</p>
+            <div class="like-count">${photo.likes} харесвания</div>
+          </div>
+        `;
+        carouselTrack.appendChild(slide);
+        
+        // Create dot
+        const dot = document.createElement('div');
+        dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+        dot.dataset.index = index;
+        carouselDots.appendChild(dot);
+        
+        // Add click event for lightbox
+        slide.addEventListener('click', () => {
+          openLightbox(photo);
+        });
+      });
+      
+      // Initialize carousel functionality
+      initCarousel();
+    }
+
+    // Carousel functionality
+    function initCarousel() {
+      const track = document.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+      const nextButton = document.querySelector('.carousel-btn.next');
+      const prevButton = document.querySelector('.carousel-btn.prev');
+      
+      let currentIndex = 0;
+      
+      // Set initial position
+      updateCarousel();
+      
+      // Next button
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+      });
+      
+      // Previous button
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel();
+      });
+      
+      // Dot navigation
+      dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+          currentIndex = parseInt(e.target.dataset.index);
+          updateCarousel();
+        });
+      });
+      
+      // Auto slide
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+      }, 5000);
+      
+      function updateCarousel() {
+        // Move track
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+        });
+      }
+    }
+
+    // Lightbox functionality
+    function openLightbox(item) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const lightboxDesc = document.getElementById('lightbox-desc');
+      
+      lightboxImg.src = item.image;
+      lightboxTitle.textContent = item.title;
+      lightboxDesc.textContent = item.description;
+      
+      // Update social share links
+      const shareUrl = encodeURIComponent(window.location.href);
+      const shareText = encodeURIComponent(`${item.title} - ${item.description}`);
+      
+      document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+      document.getElementById('share-instagram').href = `https://www.instagram.com/`;
+      document.getElementById('share-pinterest').href = `https://pinterest.com/pin/create/button/?url=${shareUrl}&description=${shareText}`;
+      
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+    const mobileLangBtn = document.querySelector('.mobile-lang-btn');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+      mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+      });
+    });
+    
+    // Back to Top Button
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('active');
+      } else {
+        backToTopButton.classList.remove('active');
+      }
+    });
+    
+    // Header scroll effect
+    const header = document.querySelector('header');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 100) {
+        header.style.padding = '10px 0';
+        header.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+      } else {
+        header.style.padding = '20px 0';
+        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+      }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Language switcher functionality
+    const langBtn = document.querySelector('.lang-btn');
+    
+    langBtn.addEventListener('click', () => {
+      if (currentLang === 'bg') {
+        setLanguage('en');
+      } else {
+        setLanguage('bg');
+      }
+    });
+
+    // Mobile language switcher functionality
+    mobileLangBtn.addEventListener('click', () => {
+      if (currentLang === 'bg') {
+        setLanguage('en');
+      } else {
+        setLanguage('bg');
+      }
+    });
+
+    // Show more reviews functionality
+    const showMoreBtn = document.getElementById('show-more-reviews');
+    const showLessBtn = document.getElementById('show-less-reviews');
+    const hiddenReviews = document.getElementById('hidden-reviews');
+    
+    showMoreBtn.addEventListener('click', () => {
+      hiddenReviews.classList.add('show');
+      showMoreBtn.style.display = 'none';
+      showLessBtn.style.display = 'inline-block';
+    });
+    
+    showLessBtn.addEventListener('click', () => {
+      hiddenReviews.classList.remove('show');
+      showMoreBtn.style.display = 'inline-block';
+      showLessBtn.style.display = 'none';
+    });
+
+    // Add review form functionality
+    const reviewForm = document.getElementById('review-form');
+    
+    reviewForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('reviewer-name').value;
+      const rating = document.querySelector('input[name="rating"]:checked');
+      const comment = document.getElementById('review-comment').value;
+      
+      if (!name || !rating || !comment) {
+        alert(currentLang === 'bg' ? 'Моля, попълнете всички полета!' : 'Please fill in all fields!');
+        return;
+      }
+      
+      // Create new review element
+      const newReview = document.createElement('div');
+      newReview.className = 'review-card';
+      
+      const today = new Date();
+      const dateString = today.toLocaleDateString(currentLang === 'bg' ? 'bg-BG' : 'en-US');
+      
+      newReview.innerHTML = `
+        <div class="review-header">
+          <div class="reviewer-info">
+            <h4>${name}</h4>
+            <div class="review-date">${dateString}</div>
+          </div>
+          <div class="stars">
+            ${'<i class="fas fa-star"></i>'.repeat(parseInt(rating.value))}
+            ${'<i class="far fa-star"></i>'.repeat(5 - parseInt(rating.value))}
+          </div>
+        </div>
+        <div class="review-text">
+          <p>${comment}</p>
+        </div>
+      `;
+      
+      // Add the new review to the hidden reviews section
+      hiddenReviews.appendChild(newReview);
+      
+      // Reset form
+      reviewForm.reset();
+      
+      // Show success message
+      alert(currentLang === 'bg' ? 'Благодарим за вашия отзив!' : 'Thank you for your review!');
+    });
+
+    // Lightbox close and navigation
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-prev').addEventListener('click', () => {
+      // Navigate to previous image in portfolio
+      const currentIndex = portfolioItems.findIndex(item => 
+        document.getElementById('lightbox-title').textContent === item.title
+      );
+      const prevIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
+      openLightbox(portfolioItems[prevIndex]);
+    });
+    document.getElementById('lightbox-next').addEventListener('click', () => {
+      // Navigate to next image in portfolio
+      const currentIndex = portfolioItems.findIndex(item => 
+        document.getElementById('lightbox-title').textContent === item.title
+      );
+      const nextIndex = (currentIndex + 1) % portfolioItems.length;
+      openLightbox(portfolioItems[nextIndex]);
+    });
+
+    // Close lightbox when clicking outside the image
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target.id === 'lightbox') {
+        closeLightbox();
+      }
+    });
+
+    // Check for saved language preference
+    const savedLang = localStorage.getItem('preferred-language');
+    if (savedLang) {
+      setLanguage(savedLang);
+    }
+
+    // Initialize portfolio and carousel on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      initializePortfolio();
+      initializeCarousel();
+    });
+  </script>
+</body>
+</html>
